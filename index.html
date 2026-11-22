@@ -171,16 +171,8 @@ a{color:inherit}
 .consult-lead{color:rgba(255,255,255,.86);font-size:1.05rem;margin-bottom:22px}
 .consult-warn{font-size:.92rem;color:rgba(255,255,255,.7);border-left:3px solid var(--accent-light);padding-left:14px}
 .form{background:#fff;color:var(--ink);border-radius:var(--radius);padding:30px;box-shadow:0 18px 48px rgba(0,0,0,.28);display:grid;gap:16px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.field{display:grid;gap:6px;min-width:0}
-.field label{font-weight:600;font-size:.9rem}
-.field input,.field select,.field textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:#fff;padding:12px 14px;border:1px solid #cdc7b8;border-radius:12px}
-.field textarea{min-height:104px;resize:vertical}
-.field input:focus,.field select:focus,.field textarea:focus{outline:3px solid rgba(125,31,58,.3);border-color:var(--accent)}
-.check{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:var(--muted)}
-.check input{flex:none;width:20px;height:20px;margin:2px 0 0;accent-color:var(--navy)}
 .form .btn{width:100%}
-.form-ok{background:#eef6ee;border:1px solid #b9d9b9;color:#1f4d1f;padding:12px 14px;border-radius:12px;font-size:.95rem}
+.contact-box-hours{margin:0;text-align:center;color:var(--muted);font-size:.95rem}
 .rodo{font-size:.88rem;color:var(--muted);border:1px solid var(--line);border-radius:12px;padding:0 14px;background:var(--soft)}
 .rodo summary{cursor:pointer;padding:12px 0;font-weight:600;color:var(--navy)}
 .rodo ol{margin:0;padding:0 0 14px 18px;display:grid;gap:8px}
@@ -233,7 +225,6 @@ a{color:inherit}
   .price{font-size:2.3rem}
   .callout{flex-direction:column;gap:14px}
   .callout-wrap{padding-bottom:56px}
-  .row2{grid-template-columns:1fr}
   .contact-cards{grid-template-columns:1fr}
 }
 @media (max-width:370px){
@@ -522,64 +513,29 @@ a{color:inherit}
     <div>
       <span class="eyebrow" data-i18n="consult.eyebrow">Консультація</span>
       <h2 data-i18n="consult.title">Записатися на консультацію</h2>
-      <p class="consult-lead" data-i18n="consult.lead">Залиште контакти й коротко опишіть питання — я зв'яжуся з вами, щоб узгодити зручний час. Консультація українською, польською, російською або англійською.</p>
-      <p class="consult-warn" data-i18n="consult.warn">Не надсилайте у формі паролі, коди доступу, номери документів чи банківські дані.</p>
+      <p class="consult-lead" data-i18n="consult.lead">Зателефонуйте або напишіть — узгодимо зручний час. Консультація українською, польською, російською або англійською.</p>
+      <p class="consult-warn" data-i18n="consult.warn">Не надсилайте в повідомленнях паролі, коди доступу, номери документів чи банківські дані.</p>
     </div>
 
-    <!-- УВАГА: це демо-форма. Вона нікуди не відправляє дані (див. скрипт унизу).
-         Щоб форма працювала по-справжньому, потрібен окремий сервіс для прийому заявок. -->
-    <form class="form" id="consultForm" novalidate>
-      <div class="row2">
-        <div class="field">
-          <label for="f-name" data-i18n="f.name">Ім'я</label>
-          <input id="f-name" name="name" type="text" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <label for="f-contact" data-i18n="f.contact">Телефон або e-mail</label>
-          <input id="f-contact" name="contact" type="text" autocomplete="off" required>
-        </div>
-      </div>
-      <div class="field">
-        <label for="f-topic" data-i18n="f.topic">Тема</label>
-        <select id="f-topic" name="topic" required>
-          <option value="" disabled selected data-i18n="f.topic0">Оберіть тему</option>
-          <option value="s1" data-i18n="s1.title">Бухгалтерія та декларації</option>
-          <option value="s2" data-i18n="s2.title">Реєстрація та запуск</option>
-          <option value="s3">KSeF</option>
-          <option value="s4" data-i18n="s4.title">Кадри, зарплати й ZUS</option>
-          <option value="s5" data-i18n="s5.title">Довідки та документи</option>
-          <option value="s6" data-i18n="s6.title">Консультації для іноземців</option>
-          <option value="other" data-i18n="f.other">Інше</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="f-when" data-i18n="f.when">Зручний день і час</label>
-        <input id="f-when" name="when" type="text" placeholder="Наприклад: будні після 15:00" data-i18n-ph="f.when.ph">
-      </div>
-      <div class="field">
-        <label for="f-msg" data-i18n="f.msg">Коротко про питання</label>
-        <textarea id="f-msg" name="message"></textarea>
-      </div>
-      <label class="check">
-        <input type="checkbox" name="consent" required>
-        <span data-i18n="f.consent">Погоджуюся на обробку моїх персональних даних для відповіді на запит і узгодження консультації (RODO / GDPR). Ознайомлений(-а) з інформацією про обробку даних нижче.</span>
-      </label>
+    <!-- Форми запису немає свідомо: зв'язок через телефон і e-mail. -->
+    <div class="form contact-box">
+      <a class="btn btn-accent" href="tel:+48729358591"><span data-i18n="cta.call">Зателефонувати</span>&nbsp;·&nbsp;+48 729 35 85 91</a>
+      <a class="btn btn-navy" href="mailto:luck290984@gmail.com"><span data-i18n="cta.mail">Написати</span>&nbsp;·&nbsp;luck290984@gmail.com</a>
+      <p class="contact-box-hours"><span data-i18n="c4.l">Години роботи</span>: <span data-i18n="c4.v">Пн–Пт, 9:00–17:00</span></p>
       <!-- Адреса й e-mail адміністратора даних — справжні.
            Текст інформаційної клаузули — шаблон; перед публікацією його варто перевірити (юрист / інспектор даних). -->
       <details class="rodo" id="rodoInfo">
         <summary data-i18n="rodo.sum">Інформація про обробку персональних даних (RODO)</summary>
         <ol>
           <li><b data-i18n="r1.l">Адміністратор даних:</b> Kateryna Ivanova, biuro księgowe, ul. Władysława Podkowińskiego 6/3, 31-321 Kraków, e-mail: luck290984@gmail.com</li>
-          <li><b data-i18n="r2.l">Мета й підстава:</b> <span data-i18n="r2.t">Відповідь на ваш запит та узгодження консультації. Підстава — ваша згода (ст. 6 ч. 1 п. «a» RODO).</span></li>
+          <li><b data-i18n="r2.l">Мета й підстава:</b> <span data-i18n="r2.t">Відповідь на ваше звернення (телефон, e-mail) та узгодження консультації. Підстава — вжиття заходів на вашу вимогу перед укладенням договору та мій законний інтерес (ст. 6 ч. 1 п. «b» і «f» RODO).</span></li>
           <li><b data-i18n="r3.l">Одержувачі:</b> <span data-i18n="r3.t">Дані не передаються третім особам, окрім постачальників технічних послуг (наприклад, електронної пошти), які діють за моїм дорученням.</span></li>
-          <li><b data-i18n="r4.l">Строк зберігання:</b> <span data-i18n="r4.t">До завершення розгляду запиту або до відкликання вами згоди (залежно від того, що настане раніше).</span></li>
-          <li><b data-i18n="r5.l">Ваші права:</b> <span data-i18n="r5.t">Доступ до даних, їх виправлення, видалення, обмеження обробки, перенесення та заперечення. Згоду можна відкликати в будь-який момент — це не впливає на законність обробки до відкликання. Щоб скористатися правами або відкликати згоду, напишіть на адресу з пункту 1. Ви також маєте право подати скаргу до Prezes Urzędu Ochrony Danych Osobowych (UODO).</span></li>
-          <li><b data-i18n="r6.l">Добровільність:</b> <span data-i18n="r6.t">Надання даних добровільне, але без них я не зможу відповісти на запит.</span></li>
+          <li><b data-i18n="r4.l">Строк зберігання:</b> <span data-i18n="r4.t">До завершення розгляду звернення, а за потреби довше — для захисту прав або виконання вимог закону.</span></li>
+          <li><b data-i18n="r5.l">Ваші права:</b> <span data-i18n="r5.t">Доступ до даних, їх виправлення, видалення, обмеження обробки, перенесення та заперечення проти обробки. Щоб скористатися правами, напишіть на адресу з пункту 1. Ви також маєте право подати скаргу до Prezes Urzędu Ochrony Danych Osobowych (UODO).</span></li>
+          <li><b data-i18n="r6.l">Добровільність:</b> <span data-i18n="r6.t">Надання даних добровільне, але без них я не зможу відповісти на звернення.</span></li>
         </ol>
       </details>
-      <button class="btn btn-navy" type="submit" data-i18n="f.submit">Надіслати заявку</button>
-      <p class="form-ok" id="formOk" role="status" aria-live="polite" hidden data-i18n="f.demo">Дякуємо! Це демонстраційна форма: у цій версії сайту дані нікуди не надсилаються.</p>
-    </form>
+    </div>
   </div>
 </section>
 
@@ -739,33 +695,25 @@ const T = {
   "pc3.per":         { pl: "za godzinę", ru: "за час" },
   "pc3.d":           { pl: "Usługi nieprzewidziane w umowie", ru: "Услуги, не предусмотренные договором" },
 
+  "cta.call":        { pl: "Zadzwoń", ru: "Позвонить" },
+  "cta.mail":        { pl: "Napisz", ru: "Написать" },
+
   "consult.eyebrow": { pl: "Konsultacja", ru: "Консультация" },
   "consult.title":   { pl: "Umów konsultację", ru: "Записаться на консультацию" },
-  "consult.lead":    { pl: "Zostaw kontakt i krótko opisz sprawę — odezwę się, aby umówić dogodny termin. Konsultacja po ukraińsku, polsku, rosyjsku lub angielsku.", ru: "Оставьте контакты и коротко опишите вопрос — я свяжусь с вами, чтобы согласовать удобное время. Консультация на украинском, польском, русском или английском." },
-  "consult.warn":    { pl: "Nie podawaj w formularzu haseł, kodów dostępu, numerów dokumentów ani danych bankowych.", ru: "Не отправляйте через форму пароли, коды доступа, номера документов и банковские данные." },
-  "f.name":          { pl: "Imię", ru: "Имя" },
-  "f.contact":       { pl: "Telefon lub e-mail", ru: "Телефон или e-mail" },
-  "f.topic":         { pl: "Temat", ru: "Тема" },
-  "f.topic0":        { pl: "Wybierz temat", ru: "Выберите тему" },
-  "f.other":         { pl: "Inne", ru: "Другое" },
-  "f.when":          { pl: "Dogodny dzień i godzina", ru: "Удобные день и время" },
-  "f.when.ph":       { pl: "Np. w dni robocze po 15:00", ru: "Например: будни после 15:00" },
-  "f.msg":           { pl: "Krótko o sprawie", ru: "Коротко о вопросе" },
-  "f.consent":       { pl: "Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie i umówienia konsultacji (RODO). Zapoznałem(-am) się z informacją o przetwarzaniu danych poniżej.", ru: "Я согласен(-на) на обработку моих персональных данных для ответа на запрос и согласования консультации (RODO / GDPR). С информацией об обработке данных ниже ознакомлен(-а)." },
+  "consult.lead":    { pl: "Zadzwoń lub napisz — umówimy dogodny termin. Konsultacja po ukraińsku, polsku, rosyjsku lub angielsku.", ru: "Позвоните или напишите — согласуем удобное время. Консультация на украинском, польском, русском или английском." },
+  "consult.warn":    { pl: "Nie wysyłaj w wiadomościach haseł, kodów dostępu, numerów dokumentów ani danych bankowych.", ru: "Не отправляйте в сообщениях пароли, коды доступа, номера документов и банковские данные." },
   "rodo.sum":        { pl: "Informacja o przetwarzaniu danych osobowych (RODO)", ru: "Информация об обработке персональных данных (RODO)" },
   "r1.l":            { pl: "Administrator danych:", ru: "Администратор данных:" },
   "r2.l":            { pl: "Cel i podstawa prawna:", ru: "Цель и основание:" },
-  "r2.t":            { pl: "Odpowiedź na zapytanie i umówienie konsultacji. Podstawa: Twoja zgoda (art. 6 ust. 1 lit. a RODO).", ru: "Ответ на ваш запрос и согласование консультации. Основание — ваше согласие (ст. 6 п. 1 пп. «a» RODO)." },
+  "r2.t":            { pl: "Odpowiedź na Twoje zapytanie (telefon, e-mail) i umówienie konsultacji. Podstawa: działania na Twoje żądanie przed zawarciem umowy oraz mój prawnie uzasadniony interes (art. 6 ust. 1 lit. b i f RODO).", ru: "Ответ на ваше обращение (телефон, e-mail) и согласование консультации. Основание — действия по вашему запросу перед заключением договора и мой законный интерес (ст. 6 п. 1 пп. «b» и «f» RODO)." },
   "r3.l":            { pl: "Odbiorcy danych:", ru: "Получатели:" },
   "r3.t":            { pl: "Dane nie są przekazywane osobom trzecim, z wyjątkiem dostawców usług technicznych (np. poczty e-mail), którzy działają na moje zlecenie.", ru: "Данные не передаются третьим лицам, кроме поставщиков технических услуг (например, электронной почты), действующих по моему поручению." },
   "r4.l":            { pl: "Okres przechowywania:", ru: "Срок хранения:" },
-  "r4.t":            { pl: "Do zakończenia obsługi zapytania lub do cofnięcia zgody (w zależności od tego, co nastąpi wcześniej).", ru: "До завершения рассмотрения запроса или до отзыва вами согласия (в зависимости от того, что наступит раньше)." },
+  "r4.t":            { pl: "Do zakończenia obsługi zapytania, a w razie potrzeby dłużej — w celu ochrony roszczeń lub wypełnienia obowiązków prawnych.", ru: "До завершения рассмотрения обращения, а при необходимости дольше — для защиты прав или выполнения требований закона." },
   "r5.l":            { pl: "Twoje prawa:", ru: "Ваши права:" },
-  "r5.t":            { pl: "Dostęp do danych, ich sprostowanie, usunięcie, ograniczenie przetwarzania, przenoszenie i sprzeciw. Zgodę możesz cofnąć w dowolnym momencie — nie wpływa to na zgodność z prawem przetwarzania dokonanego przed cofnięciem zgody. Aby skorzystać z praw lub cofnąć zgodę, napisz na adres z punktu 1. Masz też prawo wnieść skargę do Prezesa Urzędu Ochrony Danych Osobowych (UODO).", ru: "Доступ к данным, их исправление, удаление, ограничение обработки, перенос и возражение. Согласие можно отозвать в любой момент — это не влияет на законность обработки до отзыва. Чтобы воспользоваться правами или отозвать согласие, напишите на адрес из пункта 1. Вы также вправе подать жалобу в Prezes Urzędu Ochrony Danych Osobowych (UODO)." },
+  "r5.t":            { pl: "Dostęp do danych, ich sprostowanie, usunięcie, ograniczenie przetwarzania, przenoszenie i sprzeciw wobec przetwarzania. Aby skorzystać z praw, napisz na adres z punktu 1. Masz też prawo wnieść skargę do Prezesa Urzędu Ochrony Danych Osobowych (UODO).", ru: "Доступ к данным, их исправление, удаление, ограничение обработки, перенос и возражение против обработки. Чтобы воспользоваться правами, напишите на адрес из пункта 1. Вы также вправе подать жалобу в Prezes Urzędu Ochrony Danych Osobowych (UODO)." },
   "r6.l":            { pl: "Dobrowolność:", ru: "Добровольность:" },
   "r6.t":            { pl: "Podanie danych jest dobrowolne, ale bez nich nie mogę odpowiedzieć na zapytanie.", ru: "Предоставление данных добровольно, но без них я не смогу ответить на запрос." },
-  "f.submit":        { pl: "Wyślij zgłoszenie", ru: "Отправить заявку" },
-  "f.demo":          { pl: "Dziękujemy! To formularz demonstracyjny: w tej wersji strony dane nie są nigdzie wysyłane.", ru: "Спасибо! Это демонстрационная форма: в этой версии сайта данные никуда не отправляются." },
 
   "contacts.eyebrow":{ pl: "Kontakt", ru: "Контакты" },
   "contacts.title":  { pl: "Skontaktuj się ze mną", ru: "Свяжитесь со мной" },
@@ -898,17 +846,6 @@ menuBtn.addEventListener("click", () => {
 });
 document.querySelectorAll("#mainNav a").forEach(a => a.addEventListener("click", closeMenu));
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
-
-/* ===================== ДЕМО-ФОРМА ===================== */
-// Форма поки нікуди нічого не відправляє — лише показує повідомлення.
-const form = document.getElementById("consultForm");
-const formOk = document.getElementById("formOk");
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  if (!form.checkValidity()) { form.reportValidity(); return; }
-  form.reset();
-  formOk.hidden = false;
-});
 
 // посилання в підвалі розгортає блок з інформацією про обробку даних (RODO)
 document.querySelectorAll("[data-open-rodo]").forEach(a => {
