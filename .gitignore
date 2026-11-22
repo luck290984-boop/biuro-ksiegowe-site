@@ -1,0 +1,26 @@
+# ===== Секрети: НІКОЛИ не зберігаємо в проєкті =====
+.env
+.env.*
+*.key
+*.pem
+*.pfx
+*.p12
+*.cer
+*.crt
+secrets.*
+credentials*
+*token*.txt
+
+# ===== Службові файли комп'ютера та редакторів =====
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# ===== Особисті локальні налаштування Claude Code =====
+.claude/settings.local.json
+
+# ===== Файли з окремих вправ, не є частиною сайту =====
+hello.txt
+kherson-card.svg
