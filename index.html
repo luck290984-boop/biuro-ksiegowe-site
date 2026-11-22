@@ -795,9 +795,8 @@ const T = {
    Якщо список порожній — розділ «Відгуки» і пункт меню ховаються самі.
    =================================================================== */
 const REVIEWS = [
-  { text: "Дуже швидко допомогли з реєстрацією JDG і ZUS. Усе пояснили простою мовою — тепер не боюся звітності.", author: "Олена, JDG", source: "Telegram", demo: true },
-  { text: "Wszystko wytłumaczone prostym językiem, dokumenty zawsze na czas. Polecam!", author: "Marek, spółka z o.o.", source: "Instagram", demo: true },
-  { text: "Помогли настроить KSeF и разобраться с VAT UE. Спокойно и без лишней бюрократии.", author: "Андрей, JDG", source: "Google", demo: true }
+  // Шаблон одного відгуку (приберіть // на початку рядка й змініть текст):
+  // { text: "Текст відгуку", author: "Ім'я, JDG", source: "Telegram", url: "https://..." },
 ];
 
 // Нижче — код, який малює відгуки на сторінці. Його змінювати не потрібно.
