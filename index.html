@@ -65,10 +65,11 @@ a{color:inherit}
 .brand-text{display:flex;flex-direction:column;min-width:0}
 .brand-name{font-family:var(--serif);font-size:1.08rem;line-height:1.1;letter-spacing:.01em;white-space:nowrap}
 .brand-sub{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:5px;white-space:nowrap}
-.site-header nav ul{display:flex;gap:28px}
+.site-header nav ul{display:flex;gap:24px}
 .site-header nav a{display:inline-block;text-decoration:none;font-size:.95rem;padding:6px 0;border-bottom:2px solid transparent}
 .site-header nav a:hover{border-color:var(--accent)}
 .header-actions{display:flex;align-items:center;gap:12px}
+.header-actions .btn{white-space:nowrap}
 .lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:#fff}
 .lang button{border:0;background:transparent;font:inherit;font-size:.8rem;font-weight:700;letter-spacing:.04em;padding:7px 11px;border-radius:999px;color:var(--muted);cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--navy);color:#fff}
@@ -134,8 +135,22 @@ a{color:inherit}
 .step h3{font-size:1.2rem;margin-bottom:8px}
 .step p{color:var(--muted)}
 
+/* ============ ВІДГУКИ ============ */
+.reviews{background:var(--soft)}
+.reviews-note{max-width:760px;margin:-16px 0 28px;padding:12px 16px;border:1px dashed var(--accent);border-radius:12px;background:rgba(125,31,58,.06);color:var(--accent-dark);font-size:.94rem}
+.review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px}
+.review{position:relative;display:flex;flex-direction:column;margin:0;padding:46px 28px 22px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:var(--radius);box-shadow:var(--shadow)}
+.review::before{content:"\201C";position:absolute;top:8px;left:22px;font-family:var(--serif);font-size:4rem;line-height:1;color:var(--accent-light)}
+.review p{margin:0 0 20px;font-size:1.02rem}
+.review footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 14px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.review cite{font-style:normal;font-weight:600}
+.review-tags{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.tag{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--soft);color:var(--navy);font-size:.78rem;font-weight:700;letter-spacing:.03em}
+.tag-demo{background:rgba(125,31,58,.12);color:var(--accent-dark)}
+.review a{font-size:.88rem;color:var(--accent)}
+
 /* ============ ЦІНИ ============ */
-.prices{background:var(--soft)}
+.prices{background:#fff}
 .price-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:24px;align-items:stretch}
 .price-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
 .price-card h3{font-size:1.2rem;margin-bottom:12px}
@@ -251,6 +266,7 @@ a{color:inherit}
         <li><a href="#services" data-i18n="nav.services">Послуги</a></li>
         <li><a href="#about" data-i18n="nav.about">Про мене</a></li>
         <li><a href="#process" data-i18n="nav.process">Як працюю</a></li>
+        <li id="navReviews"><a href="#reviews" data-i18n="nav.reviews">Відгуки</a></li>
         <li><a href="#prices" data-i18n="nav.prices">Ціни</a></li>
         <li><a href="#contacts" data-i18n="nav.contacts">Контакти</a></li>
       </ul>
@@ -444,6 +460,20 @@ a{color:inherit}
         <p data-i18n="p4.d">Веду облік і звітність, стежу за термінами, а ви займаєтесь бізнесом.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ ВІДГУКИ ============ -->
+<!-- Відгуки додаються НЕ тут, а в списку REVIEWS у кінці файлу (у <script>).
+     Порожній список = розділ автоматично ховається. -->
+<section class="section reviews" id="reviews" hidden>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="rev.eyebrow">Відгуки</span>
+      <h2 data-i18n="rev.title">Що кажуть клієнти</h2>
+    </div>
+    <p class="reviews-note" id="reviewsNote" data-i18n="rev.note" hidden>Це вигадані приклади відгуків. Перед публікацією замініть їх справжніми (за згодою авторів) або приберіть розділ.</p>
+    <div class="review-grid" id="reviewGrid"></div>
   </div>
 </section>
 
@@ -684,6 +714,13 @@ const T = {
   "p3.d":            { pl: "Podpisujemy warunki współpracy i sporządzamy pełnomocnictwo — wtedy przejmuję kontakt z organami podatkowymi i ZUS.", ru: "Подписываем условия сотрудничества и оформляем pełnomocnictwo — после этого я беру на себя общение с налоговыми органами и ZUS." },
   "p4.d":            { pl: "Prowadzę księgowość i sprawozdawczość, pilnuję terminów, a Ty zajmujesz się biznesem.", ru: "Веду учёт и отчётность, слежу за сроками, а вы занимаетесь бизнесом." },
 
+  "nav.reviews":     { pl: "Opinie", ru: "Отзывы" },
+  "rev.eyebrow":     { pl: "Opinie", ru: "Отзывы" },
+  "rev.title":       { pl: "Co mówią klienci", ru: "Что говорят клиенты" },
+  "rev.note":        { pl: "To fikcyjne przykłady opinii. Przed publikacją zastąp je prawdziwymi (za zgodą autorów) lub usuń sekcję.", ru: "Это вымышленные примеры отзывов. Перед публикацией замените их настоящими (с согласия авторов) или уберите раздел." },
+  "rev.demo":        { pl: "Przykład", ru: "Пример" },
+  "rev.link":        { pl: "Oryginał ↗", ru: "Оригинал ↗" },
+
   "price.eyebrow":   { pl: "Cennik", ru: "Цены" },
   "price.title":     { pl: "Orientacyjne ceny", ru: "Ориентировочные цены" },
   "price.lead":      { pl: "Ostateczny koszt zależy od zakresu i złożoności pracy.", ru: "Окончательная стоимость зависит от объёма и сложности работы." },
@@ -740,6 +777,75 @@ const T = {
   "footer.rodo":     { pl: "Informacja o przetwarzaniu danych (RODO)", ru: "Информация об обработке данных (RODO)" },
   "footer.disc":     { pl: "Informacje na tej stronie mają charakter informacyjny i nie zastępują indywidualnej konsultacji.", ru: "Информация на сайте носит ознакомительный характер и не заменяет индивидуальную консультацию." }
 };
+
+/* ===================================================================
+   ВІДГУКИ КЛІЄНТІВ (з Telegram, Instagram, Google та інших джерел)
+
+   Щоб ДОДАТИ відгук: скопіюйте один блок { ... } нижче, вставте його
+   через кому в кінець списку й змініть текст. Щоб ПРИБРАТИ — видаліть блок.
+
+     text   — текст відгуку «як є», мовою оригіналу (не перекладається)
+     author — підпис: лише ім'я та тип діяльності, напр. "Олена, JDG".
+              Прізвище, телефон тощо НЕ вказуйте. Питайте згоду автора!
+     source — звідки відгук: "Telegram", "Instagram", "Google", "Facebook"…
+     url    — (необов'язково) посилання на оригінальний допис, лише https://…
+     demo   — true ТІЛЬКИ для вигаданих прикладів (показує позначку
+              «Приклад»). У справжніх відгуків цей рядок НЕ пишіть.
+
+   Якщо список порожній — розділ «Відгуки» і пункт меню ховаються самі.
+   =================================================================== */
+const REVIEWS = [
+  { text: "Дуже швидко допомогли з реєстрацією JDG і ZUS. Усе пояснили простою мовою — тепер не боюся звітності.", author: "Олена, JDG", source: "Telegram", demo: true },
+  { text: "Wszystko wytłumaczone prostym językiem, dokumenty zawsze na czas. Polecam!", author: "Marek, spółka z o.o.", source: "Instagram", demo: true },
+  { text: "Помогли настроить KSeF и разобраться с VAT UE. Спокойно и без лишней бюрократии.", author: "Андрей, JDG", source: "Google", demo: true }
+];
+
+// Нижче — код, який малює відгуки на сторінці. Його змінювати не потрібно.
+(function renderReviews() {
+  const grid = document.getElementById("reviewGrid");
+  REVIEWS.forEach(r => {
+    const card = document.createElement("blockquote");
+    card.className = "review";
+    const text = document.createElement("p");
+    text.textContent = r.text;
+    const foot = document.createElement("footer");
+    const who = document.createElement("cite");
+    who.textContent = r.author || "";
+    const tags = document.createElement("span");
+    tags.className = "review-tags";
+    if (r.source) {
+      const s = document.createElement("span");
+      s.className = "tag";
+      s.textContent = r.source;
+      tags.appendChild(s);
+    }
+    if (r.demo) {
+      const d = document.createElement("span");
+      d.className = "tag tag-demo";
+      d.setAttribute("data-i18n", "rev.demo");
+      d.textContent = "Приклад";
+      tags.appendChild(d);
+    }
+    if (r.url && /^https:\/\//i.test(r.url)) {
+      const a = document.createElement("a");
+      a.href = r.url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.setAttribute("data-i18n", "rev.link");
+      a.textContent = "Оригінал ↗";
+      tags.appendChild(a);
+    }
+    foot.append(who, tags);
+    card.append(text, foot);
+    grid.appendChild(card);
+  });
+  if (REVIEWS.length) {
+    document.getElementById("reviews").hidden = false;
+    if (REVIEWS.some(r => r.demo)) document.getElementById("reviewsNote").hidden = false;
+  } else {
+    document.getElementById("navReviews").hidden = true;
+  }
+})();
 
 /* ===================== ПЕРЕМИКАЧ МОВИ ===================== */
 const LANGS = ["uk", "pl", "ru"];
